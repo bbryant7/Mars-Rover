@@ -2,16 +2,13 @@ import React, { Component } from 'react';
 import '../styles/App.css';
 
 export default class GetImageButton extends Component {
-  constructor(props){
-    super(props)
 
-
-  }
 
   render() {
     return (
 
-      <button type="submit">Submit</button>
+      <button type="submit" onClick={this.props.fetchRoverImage}>Submit</button>
     );
   }
 }
+// onClick tells it what to do when it clicks, we are calling the method. in this case use props because it is being passed as a property
