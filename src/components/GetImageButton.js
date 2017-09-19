@@ -1,21 +1,17 @@
 import React, { Component } from 'react';
 import '../styles/App.css';
-import apiKey from './apiKey.js'
-import GetImageForm from './GetImageForm.js'
 
-
-
-class App extends Component {
+export default class GetImageButton extends Component {
   constructor(props){
     super(props)
+
+
   }
+
   render() {
     return (
 
-    <GetImageForm/>
-
+      <button type="submit">Submit</button>
     );
   }
 }
-
-export default App;
