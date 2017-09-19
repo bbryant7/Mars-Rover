@@ -10,17 +10,29 @@ export default class GetImageForm extends Component {
   constructor(props){
     super(props)
 
-  // this.fetchRoverImage = this.fetchRoverImage.bind(this);
+    this.state = {
+  rover: "Curiosity",
+  camera: "FHAZ",
+  images: [],
+  sol: "",
+}
+
+  this.fetchRoverImage = this.fetchRoverImage.bind(this);
   }
 
-  // let camera = this.state.camera;
-  // let rover =this.state.rover;
-  // let num = this.state.sol;
-  // let imageURL =`https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=${num}&camera=${camera}&api_key=${API_KEY}`;
 
-  // fetchRoverImage(){
-  //   fetch(imageURL)
 
+  fetchRoverImage(){
+    let camera = this.state.camera;
+    let rover =this.state.rover;
+    let num = this.state.sol;
+    let imageURL =`https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=${num}&camera=${camera}&api_key=${API_KEY}`;
+    fetch(imageURL).then((response) => {
+      return response.json()
+    }).then((data)=> {
+      this.setState({rover: data.photos.rover.name, camera: data.photos.camera.name, images: data.photos.img_src, sol:data.photos.sol})
+    })
+}
   render() {
     return (
     <div>
