@@ -7,7 +7,7 @@ export default class GetImageButton extends Component {
   render() {
     return (
 
-      <button type="submit" onClick={this.props.fetchRoverImage}>Submit</button>
+      <button type="submit" onClick={this.props.fetchRoverImage} style={{textAlign:"center" }}>Submit</button>
     );
   }
 }

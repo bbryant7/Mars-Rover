@@ -63,17 +63,19 @@ export default class GetImageForm extends Component {
   }
   render() {
     // value always = this.state.value, sets value of input
+
     return (
-      <div>
-        <h1> Meow Face </h1>
-      <form>
-        <label htmlFor="rover">Rover</label>
+      <div style={{backgroundColor: "blue"}}>
+        <h1 style={{textAlign: "center", color: "white", paddingTop: "20px"}}> Mars Rover </h1>
+      <form style={{border:'1px solid black', textAlign: "center", padding:"10px", color: "white"}}>
+        <label htmlFor="rover">Rover: </label>
         <select onChange={this.handleRover} id="rover" value={this.state.value}>
           <option value="Curiosity">Curiosity</option>
           <option value="Opportunity">Opportunity</option>
           <option value="Spirit">Spirt</option>
         </select>
-        <label htmlFor="camera">Camera Type</label>
+        <br/>
+        <label htmlFor="camera">Camera Type: </label>
         <select
           onChange={this.handleCamera}
           id="rover"
@@ -83,7 +85,8 @@ export default class GetImageForm extends Component {
           <option value="rhaz">RHAZ (Rear Hazard)</option>
           <option value="navcam">NAVCAM (Navigation Cam)</option>
         </select>
-        <label htmlFor="sol">Martian Sol: 1000-2000</label>
+        <br/>
+        <label htmlFor="sol">Martian Sol: (1000-2000) </label>
         <input
           type="number"
           onChange={this.handleSol}
@@ -91,9 +94,13 @@ export default class GetImageForm extends Component {
           min="1000"
           value={this.state.value}
         />
+        <br/>
+        <br/>
+
         </form>
         <GetImageButton fetchRoverImage={this.fetchRoverImage} />
         <ImageDisplay images={this.state.images}/>
+
       </div>
     );
   }
@@ -101,5 +108,5 @@ export default class GetImageForm extends Component {
 
   // <GetImageButton fetchRoverImage={this.fetchRoverImage} />
   // renders button and passes method as a property to GetImageButton
-  // <ImageDisplay images={this.state.images}/> 
+  // <ImageDisplay images={this.state.images}/>
   // renders the images, but also passes the property for images which is set in the fetch
